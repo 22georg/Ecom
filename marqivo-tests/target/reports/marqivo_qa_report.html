@@ -1,0 +1,196 @@
+<!DOCTYPE html><html><head><meta charset='UTF-8'><title>MARQIVO QA Verification Report</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0F172A; color: #F8FAFC; margin: 0; padding: 24px; }
+.container { max-width: 1200px; margin: 0 auto; }
+h1 { color: #10B981; margin-bottom: 4px; }
+.card { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+.metric { background: #0F172A; padding: 16px; border-radius: 8px; border: 1px solid #334155; }
+.metric-val { font-size: 24px; font-weight: bold; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+th, td { text-align: left; padding: 12px; border-bottom: 1px solid #334155; font-size: 14px; }
+th { background: #0F172A; color: #94A3B8; text-transform: uppercase; font-size: 12px; }
+.badge-pass { background: rgba(16,185,129,0.15); color: #10B981; padding: 4px 8px; border-radius: 9999px; font-weight: bold; font-size: 11px; }
+.badge-fail { background: rgba(244,63,94,0.15); color: #F43F5E; padding: 4px 8px; border-radius: 9999px; font-weight: bold; font-size: 11px; }
+.badge-skip { background: rgba(245,158,11,0.15); color: #F59E0B; padding: 4px 8px; border-radius: 9999px; font-weight: bold; font-size: 11px; }
+</style></head><body><div class='container'>
+<h1>MARQIVO QA Verification Execution Report</h1>
+<p style='color: #94A3B8;'>Automated UI & Function Test Suite Results</p>
+<div class='card'><div class='grid'>
+<div class='metric'><div>Total Tests</div><div class='metric-val'>24</div></div>
+<div class='metric'><div>Passed</div><div class='metric-val' style='color:#10B981;'>18</div></div>
+<div class='metric'><div>Failed</div><div class='metric-val' style='color:#F43F5E;'>6</div></div>
+<div class='metric'><div>Skipped</div><div class='metric-val' style='color:#F59E0B;'>0</div></div>
+<div class='metric'><div>Pass Rate</div><div class='metric-val' style='color:#10B981;'>75.0%</div></div>
+</div></div>
+<div class='card'><h2>Test Results Details</h2><table><thead><tr><th>Test Name</th><th>Category</th><th>Status</th><th>Duration</th><th>Details</th></tr></thead><tbody>
+<tr>
+<td><b>testHomepageLoad</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>38 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testNavigationLinksDiscovery</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>779 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testCartAndAccountRoutes</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>453 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testSearchFunctionality</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>4187 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testOpenProductDetail</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>2725 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testCartOpening</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>740 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testCheckoutPageLoad</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>686 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testAccountSecurityRedirect</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>348 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testCustomerOrdersRoute</b></td>
+<td>CUSTOMER</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>370 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testAdminLoginPageLoad</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>531 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testValidAdminAuthentication</b></td>
+<td>ADMIN</td>
+<td><span class='badge-fail'>FAIL</span></td>
+<td>5157 ms</td>
+<td>Successful admin sign-in should navigate to /admin/dashboard. expected [true] but found [false]</td>
+</tr>
+<tr>
+<td><b>testInvalidAdminCredentials</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>5188 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testAdminSidebarNavigation</b></td>
+<td>ADMIN</td>
+<td><span class='badge-fail'>FAIL</span></td>
+<td>19560 ms</td>
+<td>Admin sidebar should discover navigation links. expected [false] but found [true]</td>
+</tr>
+<tr>
+<td><b>testAdminProductListing</b></td>
+<td>ADMIN</td>
+<td><span class='badge-fail'>FAIL</span></td>
+<td>5491 ms</td>
+<td>Admin products route should load. expected [true] but found [false]</td>
+</tr>
+<tr>
+<td><b>testCategoryHierarchyPage</b></td>
+<td>ADMIN</td>
+<td><span class='badge-fail'>FAIL</span></td>
+<td>5477 ms</td>
+<td>Category management page should load. expected [true] but found [false]</td>
+</tr>
+<tr>
+<td><b>testInventoryLevelsPage</b></td>
+<td>ADMIN</td>
+<td><span class='badge-fail'>FAIL</span></td>
+<td>5484 ms</td>
+<td>Inventory management page should load. expected [true] but found [false]</td>
+</tr>
+<tr>
+<td><b>testAdminOrdersWorkspace</b></td>
+<td>ADMIN</td>
+<td><span class='badge-fail'>FAIL</span></td>
+<td>5496 ms</td>
+<td>Admin orders workspace should load. expected [true] but found [false]</td>
+</tr>
+<tr>
+<td><b>testReturnsWorkspace</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>12624 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testRefundsLedger</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>12653 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testReviewsModerationPage</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>12804 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testCouponsAdministrationPage</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>12746 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testAdminAccountsPage</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>12771 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testRolesMatrixPage</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>12558 ms</td>
+<td>-</td>
+</tr>
+<tr>
+<td><b>testAuditLogsPage</b></td>
+<td>ADMIN</td>
+<td><span class='badge-pass'>PASS</span></td>
+<td>10004 ms</td>
+<td>-</td>
+</tr>
+</tbody></table></div>
+</div></body></html>

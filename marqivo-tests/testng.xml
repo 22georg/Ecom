@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MARQIVO Automated QA Verification Suite" verbose="2">
+    <listeners>
+        <listener class-name="com.marqivo.listeners.TestListener" />
+    </listeners>
+
+    <test name="Customer &amp; Storefront Verification Tests">
+        <classes>
+            <class name="com.marqivo.tests.CustomerNavigationTest" />
+            <class name="com.marqivo.tests.ProductDiscoveryTest" />
+            <class name="com.marqivo.tests.CartAndCheckoutTest" />
+            <class name="com.marqivo.tests.AccountAndOrdersTest" />
+        </classes>
+    </test>
+
+    <test name="Admin Console &amp; Operations Verification Tests">
+        <classes>
+            <class name="com.marqivo.tests.AdminLoginTest" />
+            <class name="com.marqivo.tests.AdminNavigationTest" />
+            <class name="com.marqivo.tests.AdminProductCrudTest" />
+            <class name="com.marqivo.tests.AdminCategoryCrudTest" />
+            <class name="com.marqivo.tests.AdminInventoryTest" />
+            <class name="com.marqivo.tests.AdminOrderAndFulfillmentTest" />
+            <class name="com.marqivo.tests.AdminReturnRefundTest" />
+            <class name="com.marqivo.tests.AdminModerationAndCouponsTest" />
+            <class name="com.marqivo.tests.AdminSecurityAndRbacTest" />
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="24" passed="18" failed="6" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-09-07T23:51:57 GMT+06:00" name="MARQIVO Automated QA Verification Suite" finished-at="2026-09-07T23:59:23 GMT+06:00" duration-ms="446071">
+    <groups>
+    </groups>
+    <test started-at="2026-09-07T23:51:57 GMT+06:00" name="Customer &amp; Storefront Verification Tests" finished-at="2026-09-07T23:53:57 GMT+06:00" duration-ms="119148">
+      <class name="com.marqivo.tests.CartAndCheckoutTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.CartAndCheckoutTest@659a969b]" started-at="2026-09-07T23:53:08 GMT+06:00" name="setUp" finished-at="2026-09-07T23:53:18 GMT+06:00" duration-ms="9783" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCartOpening()[pri:1, instance:com.marqivo.tests.CartAndCheckoutTest@659a969b]" started-at="2026-09-07T23:53:18 GMT+06:00" name="testCartOpening" description="Verify Shopping Cart Opening and Coupon Structure" finished-at="2026-09-07T23:53:19 GMT+06:00" duration-ms="740" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCartOpening -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.CartAndCheckoutTest@659a969b]" started-at="2026-09-07T23:53:19 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:53:19 GMT+06:00" duration-ms="96" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testCartOpening status=SUCCESS method=CartAndCheckoutTest.testCartOpening()[pri:1, instance:com.marqivo.tests.CartAndCheckoutTest@659a969b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.CartAndCheckoutTest@659a969b]" started-at="2026-09-07T23:53:19 GMT+06:00" name="setUp" finished-at="2026-09-07T23:53:31 GMT+06:00" duration-ms="12128" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCheckoutPageLoad()[pri:2, instance:com.marqivo.tests.CartAndCheckoutTest@659a969b]" started-at="2026-09-07T23:53:31 GMT+06:00" name="testCheckoutPageLoad" description="Verify Checkout Route Loading" finished-at="2026-09-07T23:53:31 GMT+06:00" duration-ms="686" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCheckoutPageLoad -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.CartAndCheckoutTest@659a969b]" started-at="2026-09-07T23:53:31 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:53:32 GMT+06:00" duration-ms="111" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testCheckoutPageLoad status=SUCCESS method=CartAndCheckoutTest.testCheckoutPageLoad()[pri:2, instance:com.marqivo.tests.CartAndCheckoutTest@659a969b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.CartAndCheckoutTest -->
+      <class name="com.marqivo.tests.ProductDiscoveryTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.ProductDiscoveryTest@1d119efb]" started-at="2026-09-07T23:52:37 GMT+06:00" name="setUp" finished-at="2026-09-07T23:52:49 GMT+06:00" duration-ms="11765" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSearchFunctionality()[pri:1, instance:com.marqivo.tests.ProductDiscoveryTest@1d119efb]" started-at="2026-09-07T23:52:49 GMT+06:00" name="testSearchFunctionality" description="Verify Search Functionality" finished-at="2026-09-07T23:52:53 GMT+06:00" duration-ms="4187" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchFunctionality -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.ProductDiscoveryTest@1d119efb]" started-at="2026-09-07T23:52:53 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:52:53 GMT+06:00" duration-ms="96" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testSearchFunctionality status=SUCCESS method=ProductDiscoveryTest.testSearchFunctionality()[pri:1, instance:com.marqivo.tests.ProductDiscoveryTest@1d119efb] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.ProductDiscoveryTest@1d119efb]" started-at="2026-09-07T23:52:53 GMT+06:00" name="setUp" finished-at="2026-09-07T23:53:05 GMT+06:00" duration-ms="12429" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testOpenProductDetail()[pri:2, instance:com.marqivo.tests.ProductDiscoveryTest@1d119efb]" started-at="2026-09-07T23:53:05 GMT+06:00" name="testOpenProductDetail" description="Verify Opening Product Detail Page (PDP)" finished-at="2026-09-07T23:53:08 GMT+06:00" duration-ms="2725" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testOpenProductDetail -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.ProductDiscoveryTest@1d119efb]" started-at="2026-09-07T23:53:08 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:53:08 GMT+06:00" duration-ms="96" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testOpenProductDetail status=SUCCESS method=ProductDiscoveryTest.testOpenProductDetail()[pri:2, instance:com.marqivo.tests.ProductDiscoveryTest@1d119efb] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.ProductDiscoveryTest -->
+      <class name="com.marqivo.tests.AccountAndOrdersTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AccountAndOrdersTest@76908cc0]" started-at="2026-09-07T23:53:32 GMT+06:00" name="setUp" finished-at="2026-09-07T23:53:43 GMT+06:00" duration-ms="11829" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAccountSecurityRedirect()[pri:1, instance:com.marqivo.tests.AccountAndOrdersTest@76908cc0]" started-at="2026-09-07T23:53:43 GMT+06:00" name="testAccountSecurityRedirect" description="Verify Account Route Guarding and Login Redirect" finished-at="2026-09-07T23:53:44 GMT+06:00" duration-ms="348" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAccountSecurityRedirect -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AccountAndOrdersTest@76908cc0]" started-at="2026-09-07T23:53:44 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:53:44 GMT+06:00" duration-ms="78" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAccountSecurityRedirect status=SUCCESS method=AccountAndOrdersTest.testAccountSecurityRedirect()[pri:1, instance:com.marqivo.tests.AccountAndOrdersTest@76908cc0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AccountAndOrdersTest@76908cc0]" started-at="2026-09-07T23:53:44 GMT+06:00" name="setUp" finished-at="2026-09-07T23:53:56 GMT+06:00" duration-ms="12225" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCustomerOrdersRoute()[pri:2, instance:com.marqivo.tests.AccountAndOrdersTest@76908cc0]" started-at="2026-09-07T23:53:56 GMT+06:00" name="testCustomerOrdersRoute" description="Verify Customer Orders Guarding" finished-at="2026-09-07T23:53:56 GMT+06:00" duration-ms="370" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCustomerOrdersRoute -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AccountAndOrdersTest@76908cc0]" started-at="2026-09-07T23:53:56 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:53:57 GMT+06:00" duration-ms="85" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testCustomerOrdersRoute status=SUCCESS method=AccountAndOrdersTest.testCustomerOrdersRoute()[pri:2, instance:com.marqivo.tests.AccountAndOrdersTest@76908cc0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AccountAndOrdersTest -->
+      <class name="com.marqivo.tests.CustomerNavigationTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:51:57 GMT+06:00" name="setUp" finished-at="2026-09-07T23:52:11 GMT+06:00" duration-ms="13890" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testHomepageLoad()[pri:1, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:52:11 GMT+06:00" name="testHomepageLoad" description="Verify Homepage Logo and Elements Load" finished-at="2026-09-07T23:52:11 GMT+06:00" duration-ms="38" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testHomepageLoad -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:52:11 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:52:11 GMT+06:00" duration-ms="97" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testHomepageLoad status=SUCCESS method=CustomerNavigationTest.testHomepageLoad()[pri:1, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:52:11 GMT+06:00" name="setUp" finished-at="2026-09-07T23:52:24 GMT+06:00" duration-ms="12486" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testNavigationLinksDiscovery()[pri:2, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:52:24 GMT+06:00" name="testNavigationLinksDiscovery" description="Discover and Verify Navigation Links" finished-at="2026-09-07T23:52:25 GMT+06:00" duration-ms="779" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNavigationLinksDiscovery -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:52:25 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:52:25 GMT+06:00" duration-ms="98" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testNavigationLinksDiscovery status=SUCCESS method=CustomerNavigationTest.testNavigationLinksDiscovery()[pri:2, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:52:25 GMT+06:00" name="setUp" finished-at="2026-09-07T23:52:36 GMT+06:00" duration-ms="11381" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCartAndAccountRoutes()[pri:3, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:52:36 GMT+06:00" name="testCartAndAccountRoutes" description="Verify Cart &amp; Account Route Destinations" finished-at="2026-09-07T23:52:37 GMT+06:00" duration-ms="453" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCartAndAccountRoutes -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916]" started-at="2026-09-07T23:52:37 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:52:37 GMT+06:00" duration-ms="88" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testCartAndAccountRoutes status=SUCCESS method=CustomerNavigationTest.testCartAndAccountRoutes()[pri:3, instance:com.marqivo.tests.CustomerNavigationTest@1f3f4916] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.CustomerNavigationTest -->
+    </test> <!-- Customer & Storefront Verification Tests -->
+    <test started-at="2026-09-07T23:53:57 GMT+06:00" name="Admin Console &amp; Operations Verification Tests" finished-at="2026-09-07T23:59:23 GMT+06:00" duration-ms="326909">
+      <class name="com.marqivo.tests.AdminOrderAndFulfillmentTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminOrderAndFulfillmentTest@188715b5]" started-at="2026-09-07T23:56:13 GMT+06:00" name="setUp" finished-at="2026-09-07T23:56:26 GMT+06:00" duration-ms="12412" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAdminOrdersWorkspace()[pri:1, instance:com.marqivo.tests.AdminOrderAndFulfillmentTest@188715b5]" started-at="2026-09-07T23:56:26 GMT+06:00" name="testAdminOrdersWorkspace" description="Verify Admin Order Operations Workspace" finished-at="2026-09-07T23:56:31 GMT+06:00" duration-ms="5496" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Admin orders workspace should load. expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Admin orders workspace should load. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.marqivo.tests.AdminOrderAndFulfillmentTest.testAdminOrdersWorkspace(AdminOrderAndFulfillmentTest.java:18)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdminOrdersWorkspace -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminOrderAndFulfillmentTest@188715b5]" started-at="2026-09-07T23:56:31 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:56:31 GMT+06:00" duration-ms="148" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAdminOrdersWorkspace status=FAILURE method=AdminOrderAndFulfillmentTest.testAdminOrdersWorkspace()[pri:1, instance:com.marqivo.tests.AdminOrderAndFulfillmentTest@188715b5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminOrderAndFulfillmentTest -->
+      <class name="com.marqivo.tests.AdminInventoryTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminInventoryTest@2f7298b]" started-at="2026-09-07T23:55:55 GMT+06:00" name="setUp" finished-at="2026-09-07T23:56:08 GMT+06:00" duration-ms="12443" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testInventoryLevelsPage()[pri:1, instance:com.marqivo.tests.AdminInventoryTest@2f7298b]" started-at="2026-09-07T23:56:08 GMT+06:00" name="testInventoryLevelsPage" description="Verify Warehouse Inventory Levels Page" finished-at="2026-09-07T23:56:13 GMT+06:00" duration-ms="5484" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Inventory management page should load. expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Inventory management page should load. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.marqivo.tests.AdminInventoryTest.testInventoryLevelsPage(AdminInventoryTest.java:18)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInventoryLevelsPage -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminInventoryTest@2f7298b]" started-at="2026-09-07T23:56:13 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:56:13 GMT+06:00" duration-ms="157" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testInventoryLevelsPage status=FAILURE method=AdminInventoryTest.testInventoryLevelsPage()[pri:1, instance:com.marqivo.tests.AdminInventoryTest@2f7298b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminInventoryTest -->
+      <class name="com.marqivo.tests.AdminProductCrudTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminProductCrudTest@50eac852]" started-at="2026-09-07T23:55:18 GMT+06:00" name="setUp" finished-at="2026-09-07T23:55:31 GMT+06:00" duration-ms="13291" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAdminProductListing()[pri:1, instance:com.marqivo.tests.AdminProductCrudTest@50eac852]" started-at="2026-09-07T23:55:31 GMT+06:00" name="testAdminProductListing" description="Verify Admin Product Management Listing and Creation" finished-at="2026-09-07T23:55:37 GMT+06:00" duration-ms="5491" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Admin products route should load. expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Admin products route should load. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.marqivo.tests.AdminProductCrudTest.testAdminProductListing(AdminProductCrudTest.java:20)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdminProductListing -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminProductCrudTest@50eac852]" started-at="2026-09-07T23:55:37 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:55:37 GMT+06:00" duration-ms="135" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAdminProductListing status=FAILURE method=AdminProductCrudTest.testAdminProductListing()[pri:1, instance:com.marqivo.tests.AdminProductCrudTest@50eac852] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminProductCrudTest -->
+      <class name="com.marqivo.tests.AdminReturnRefundTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminReturnRefundTest@1ea9f6af]" started-at="2026-09-07T23:56:31 GMT+06:00" name="setUp" finished-at="2026-09-07T23:56:45 GMT+06:00" duration-ms="14177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testReturnsWorkspace()[pri:1, instance:com.marqivo.tests.AdminReturnRefundTest@1ea9f6af]" started-at="2026-09-07T23:56:45 GMT+06:00" name="testReturnsWorkspace" description="Verify Return Requests Workspace" finished-at="2026-09-07T23:56:58 GMT+06:00" duration-ms="12624" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReturnsWorkspace -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminReturnRefundTest@1ea9f6af]" started-at="2026-09-07T23:56:58 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:56:58 GMT+06:00" duration-ms="134" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testReturnsWorkspace status=SUCCESS method=AdminReturnRefundTest.testReturnsWorkspace()[pri:1, instance:com.marqivo.tests.AdminReturnRefundTest@1ea9f6af] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminReturnRefundTest@1ea9f6af]" started-at="2026-09-07T23:56:58 GMT+06:00" name="setUp" finished-at="2026-09-07T23:57:08 GMT+06:00" duration-ms="10001" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRefundsLedger()[pri:2, instance:com.marqivo.tests.AdminReturnRefundTest@1ea9f6af]" started-at="2026-09-07T23:57:08 GMT+06:00" name="testRefundsLedger" description="Verify Refund History Ledger" finished-at="2026-09-07T23:57:21 GMT+06:00" duration-ms="12653" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRefundsLedger -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminReturnRefundTest@1ea9f6af]" started-at="2026-09-07T23:57:21 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:57:21 GMT+06:00" duration-ms="142" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testRefundsLedger status=SUCCESS method=AdminReturnRefundTest.testRefundsLedger()[pri:2, instance:com.marqivo.tests.AdminReturnRefundTest@1ea9f6af] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminReturnRefundTest -->
+      <class name="com.marqivo.tests.AdminModerationAndCouponsTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminModerationAndCouponsTest@6a192cfe]" started-at="2026-09-07T23:57:21 GMT+06:00" name="setUp" finished-at="2026-09-07T23:57:33 GMT+06:00" duration-ms="12284" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testReviewsModerationPage()[pri:1, instance:com.marqivo.tests.AdminModerationAndCouponsTest@6a192cfe]" started-at="2026-09-07T23:57:33 GMT+06:00" name="testReviewsModerationPage" description="Verify Review Moderation Workspace" finished-at="2026-09-07T23:57:46 GMT+06:00" duration-ms="12804" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReviewsModerationPage -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminModerationAndCouponsTest@6a192cfe]" started-at="2026-09-07T23:57:46 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:57:46 GMT+06:00" duration-ms="137" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testReviewsModerationPage status=SUCCESS method=AdminModerationAndCouponsTest.testReviewsModerationPage()[pri:1, instance:com.marqivo.tests.AdminModerationAndCouponsTest@6a192cfe] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminModerationAndCouponsTest@6a192cfe]" started-at="2026-09-07T23:57:46 GMT+06:00" name="setUp" finished-at="2026-09-07T23:57:58 GMT+06:00" duration-ms="12071" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCouponsAdministrationPage()[pri:2, instance:com.marqivo.tests.AdminModerationAndCouponsTest@6a192cfe]" started-at="2026-09-07T23:57:58 GMT+06:00" name="testCouponsAdministrationPage" description="Verify Coupon Administration Page" finished-at="2026-09-07T23:58:11 GMT+06:00" duration-ms="12746" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCouponsAdministrationPage -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminModerationAndCouponsTest@6a192cfe]" started-at="2026-09-07T23:58:11 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:58:11 GMT+06:00" duration-ms="126" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testCouponsAdministrationPage status=SUCCESS method=AdminModerationAndCouponsTest.testCouponsAdministrationPage()[pri:2, instance:com.marqivo.tests.AdminModerationAndCouponsTest@6a192cfe] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminModerationAndCouponsTest -->
+      <class name="com.marqivo.tests.AdminNavigationTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminNavigationTest@61df66b6]" started-at="2026-09-07T23:54:45 GMT+06:00" name="setUp" finished-at="2026-09-07T23:54:58 GMT+06:00" duration-ms="13266" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAdminSidebarNavigation()[pri:1, instance:com.marqivo.tests.AdminNavigationTest@61df66b6]" started-at="2026-09-07T23:54:58 GMT+06:00" name="testAdminSidebarNavigation" description="Verify Full Admin Sidebar Navigation Discovery" finished-at="2026-09-07T23:55:18 GMT+06:00" duration-ms="19560" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Admin sidebar should discover navigation links. expected [false] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Admin sidebar should discover navigation links. expected [false] but found [true]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertFalse(Assert.java:79)
+at com.marqivo.tests.AdminNavigationTest.testAdminSidebarNavigation(AdminNavigationTest.java:42)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdminSidebarNavigation -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminNavigationTest@61df66b6]" started-at="2026-09-07T23:55:18 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:55:18 GMT+06:00" duration-ms="125" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAdminSidebarNavigation status=FAILURE method=AdminNavigationTest.testAdminSidebarNavigation()[pri:1, instance:com.marqivo.tests.AdminNavigationTest@61df66b6] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminNavigationTest -->
+      <class name="com.marqivo.tests.AdminLoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:53:57 GMT+06:00" name="setUp" finished-at="2026-09-07T23:54:09 GMT+06:00" duration-ms="12146" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAdminLoginPageLoad()[pri:1, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:54:09 GMT+06:00" name="testAdminLoginPageLoad" description="Verify Admin Login Page Loads" finished-at="2026-09-07T23:54:09 GMT+06:00" duration-ms="531" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdminLoginPageLoad -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:54:09 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:54:09 GMT+06:00" duration-ms="83" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAdminLoginPageLoad status=SUCCESS method=AdminLoginTest.testAdminLoginPageLoad()[pri:1, instance:com.marqivo.tests.AdminLoginTest@291ae] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:54:09 GMT+06:00" name="setUp" finished-at="2026-09-07T23:54:21 GMT+06:00" duration-ms="11989" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testValidAdminAuthentication()[pri:2, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:54:21 GMT+06:00" name="testValidAdminAuthentication" description="Verify Valid Admin Authentication" finished-at="2026-09-07T23:54:26 GMT+06:00" duration-ms="5157" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Successful admin sign-in should navigate to /admin/dashboard. expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Successful admin sign-in should navigate to /admin/dashboard. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.marqivo.tests.AdminLoginTest.testValidAdminAuthentication(AdminLoginTest.java:32)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidAdminAuthentication -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:54:26 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:54:27 GMT+06:00" duration-ms="152" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testValidAdminAuthentication status=FAILURE method=AdminLoginTest.testValidAdminAuthentication()[pri:2, instance:com.marqivo.tests.AdminLoginTest@291ae] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:54:27 GMT+06:00" name="setUp" finished-at="2026-09-07T23:54:40 GMT+06:00" duration-ms="13285" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testInvalidAdminCredentials()[pri:3, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:54:40 GMT+06:00" name="testInvalidAdminCredentials" description="Verify Invalid Admin Credentials Failure" finished-at="2026-09-07T23:54:45 GMT+06:00" duration-ms="5188" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidAdminCredentials -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminLoginTest@291ae]" started-at="2026-09-07T23:54:45 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:54:45 GMT+06:00" duration-ms="90" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testInvalidAdminCredentials status=SUCCESS method=AdminLoginTest.testInvalidAdminCredentials()[pri:3, instance:com.marqivo.tests.AdminLoginTest@291ae] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminLoginTest -->
+      <class name="com.marqivo.tests.AdminCategoryCrudTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminCategoryCrudTest@16ec5519]" started-at="2026-09-07T23:55:37 GMT+06:00" name="setUp" finished-at="2026-09-07T23:55:50 GMT+06:00" duration-ms="12453" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCategoryHierarchyPage()[pri:1, instance:com.marqivo.tests.AdminCategoryCrudTest@16ec5519]" started-at="2026-09-07T23:55:50 GMT+06:00" name="testCategoryHierarchyPage" description="Verify Category Hierarchy Page Loading" finished-at="2026-09-07T23:55:55 GMT+06:00" duration-ms="5477" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Category management page should load. expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Category management page should load. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.marqivo.tests.AdminCategoryCrudTest.testCategoryHierarchyPage(AdminCategoryCrudTest.java:18)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCategoryHierarchyPage -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminCategoryCrudTest@16ec5519]" started-at="2026-09-07T23:55:55 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:55:55 GMT+06:00" duration-ms="134" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testCategoryHierarchyPage status=FAILURE method=AdminCategoryCrudTest.testCategoryHierarchyPage()[pri:1, instance:com.marqivo.tests.AdminCategoryCrudTest@16ec5519] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminCategoryCrudTest -->
+      <class name="com.marqivo.tests.AdminSecurityAndRbacTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:58:11 GMT+06:00" name="setUp" finished-at="2026-09-07T23:58:23 GMT+06:00" duration-ms="12156" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAdminAccountsPage()[pri:1, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:58:23 GMT+06:00" name="testAdminAccountsPage" description="Verify Admin Accounts Management Page" finished-at="2026-09-07T23:58:36 GMT+06:00" duration-ms="12771" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdminAccountsPage -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:58:36 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:58:36 GMT+06:00" duration-ms="123" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAdminAccountsPage status=SUCCESS method=AdminSecurityAndRbacTest.testAdminAccountsPage()[pri:1, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:58:36 GMT+06:00" name="setUp" finished-at="2026-09-07T23:58:48 GMT+06:00" duration-ms="12228" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testRolesMatrixPage()[pri:2, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:58:48 GMT+06:00" name="testRolesMatrixPage" description="Verify RBAC Roles &amp; Permissions Matrix Page" finished-at="2026-09-07T23:59:01 GMT+06:00" duration-ms="12558" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRolesMatrixPage -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:59:01 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:59:01 GMT+06:00" duration-ms="126" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testRolesMatrixPage status=SUCCESS method=AdminSecurityAndRbacTest.testRolesMatrixPage()[pri:2, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:59:01 GMT+06:00" name="setUp" finished-at="2026-09-07T23:59:13 GMT+06:00" duration-ms="12209" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAuditLogsPage()[pri:3, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:59:13 GMT+06:00" name="testAuditLogsPage" description="Verify Administrative Audit Logs Page" finished-at="2026-09-07T23:59:23 GMT+06:00" duration-ms="10004" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAuditLogsPage -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47]" started-at="2026-09-07T23:59:23 GMT+06:00" name="tearDown" finished-at="2026-09-07T23:59:23 GMT+06:00" duration-ms="112" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testAuditLogsPage status=SUCCESS method=AdminSecurityAndRbacTest.testAuditLogsPage()[pri:3, instance:com.marqivo.tests.AdminSecurityAndRbacTest@5119fb47] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.marqivo.tests.AdminSecurityAndRbacTest -->
+    </test> <!-- Admin Console & Operations Verification Tests -->
+  </suite> <!-- MARQIVO Automated QA Verification Suite -->
+</testng-results>

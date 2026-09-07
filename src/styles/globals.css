@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './tokens.css';
+
+/* ============================================================
+   MARQIVO GLOBAL STYLES & RESET
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--mq-font-body);
+  font-size: var(--mq-text-base);
+  line-height: 1.5;
+  color: var(--mq-text-primary);
+  background-color: var(--mq-background);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--mq-font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--mq-text-primary);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: var(--mq-text-4xl); }
+h2 { font-size: var(--mq-text-3xl); }
+h3 { font-size: var(--mq-text-2xl); }
+h4 { font-size: var(--mq-text-xl); }
+h5 { font-size: var(--mq-text-lg); }
+h6 { font-size: var(--mq-text-base); }
+
+p {
+  color: var(--mq-text-secondary);
+}
+
+a {
+  color: var(--mq-secondary);
+  text-decoration: none;
+  transition: color var(--mq-transition-fast);
+}
+
+a:hover {
+  color: var(--mq-secondary-hover);
+}
+
+/* Code & Numbers */
+code, pre, .mq-mono {
+  font-family: var(--mq-font-mono);
+}
+
+.mq-price {
+  font-family: var(--mq-font-body);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--mq-text-primary);
+}
+
+/* Utility Containers */
+.mq-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--mq-space-4);
+  padding-right: var(--mq-space-4);
+}
+
+@media (min-width: 768px) {
+  .mq-container {
+    padding-left: var(--mq-space-6);
+    padding-right: var(--mq-space-6);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mq-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mq-border-hover);
+  border-radius: var(--mq-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mq-text-tertiary);
+}
+
+/* Accessibility Focus Outline */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--mq-focus-ring);
+}
+
+/* Keyframe Animations */
+@keyframes mq-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mq-pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes mq-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.mq-animate-fade-in {
+  animation: mq-fade-in var(--mq-transition-normal) forwards;
+}
+
+.mq-skeleton-pulse {
+  animation: mq-pulse-subtle 1.8s infinite ease-in-out;
+}
