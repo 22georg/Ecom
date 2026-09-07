@@ -38,3 +38,11 @@ next-env.d.ts
 Thumbs.db
 .vscode/
 .idea/
+
+# Maven build output (QA test suite compiled classes)
+marqivo-tests/target/
+marqivo-tests/tools/maven/
+
+# QA test screenshots & reports (auto-generated)
+marqivo-tests/test-output/
+marqivo-tests/screenshots/
