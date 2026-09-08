@@ -126,7 +126,7 @@ export const HeaderSearch: React.FC = () => {
     setIsOpen(false);
     setQuery('');
     if (item.type === 'product') {
-      router.push(`/search?q=${encodeURIComponent(item.name)}`);
+      router.push(`/product/${item.slug}`);
     } else if (item.type === 'category') {
       router.push(`/category/${item.slug}`);
     } else if (item.type === 'brand') {

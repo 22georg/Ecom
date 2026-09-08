@@ -96,7 +96,7 @@ export const ProductCard: React.FC<{ product: ProductCardData }> = ({ product })
             </span>
           )}
 
-          <a href={`/search?q=${encodeURIComponent(product.name)}`} className="group-hover:text-[var(--mq-secondary)] transition-colors">
+          <a href={`/product/${product.slug}`} className="group-hover:text-[var(--mq-secondary)] transition-colors">
             <h3 className="font-bold text-sm text-[var(--mq-text-primary)] leading-snug line-clamp-2">
               {product.name}
             </h3>
@@ -124,11 +124,11 @@ export const ProductCard: React.FC<{ product: ProductCardData }> = ({ product })
         <div className="flex flex-col pt-3">
           <div className="flex items-center gap-2">
             <span className="mq-price text-base text-[var(--mq-text-primary)] font-bold">
-              ${priceNum.toFixed(2)}
+              ৳{priceNum.toFixed(2)}
             </span>
             {hasDiscount && (
               <span className="text-xs text-[var(--mq-text-tertiary)] line-through">
-                ${compareNum!.toFixed(2)}
+                ৳{compareNum!.toFixed(2)}
               </span>
             )}
           </div>
@@ -140,7 +140,7 @@ export const ProductCard: React.FC<{ product: ProductCardData }> = ({ product })
         <Button
           variant="primary"
           size="sm"
-          onClick={() => (window.location.href = `/search?q=${encodeURIComponent(product.name)}`)}
+          onClick={() => (window.location.href = `/product/${product.slug}`)}
           rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
         >
           View
