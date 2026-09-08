@@ -50,7 +50,7 @@ export async function PUT(request: Request) {
   } catch (err: any) {
     if (err instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Validation failed', details: err.errors.map((e) => e.message) },
+        { error: 'Validation failed', details: err.errors.map((e: any) => e.message) },
         { status: 400 }
       );
     }

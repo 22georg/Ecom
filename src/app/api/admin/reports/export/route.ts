@@ -23,7 +23,7 @@ export async function GET(request: Request) {
     });
 
     const headers = ['Order Number', 'Customer Email', 'Status', 'Payment Status', 'Subtotal', 'Grand Total', 'Created At'];
-    const rows = orders.map((o) => [
+    const rows = orders.map((o: any) => [
       o.orderNumber,
       o.customer?.email || o.guestEmail || '',
       o.status,
@@ -41,7 +41,7 @@ export async function GET(request: Request) {
     });
 
     const headers = ['Product Name', 'Slug', 'Status', 'Rating Avg', 'Review Count', 'Variants Count', 'Created At'];
-    const rows = products.map((p) => [
+    const rows = products.map((p: any) => [
       p.name,
       p.slug,
       p.status,
@@ -59,7 +59,7 @@ export async function GET(request: Request) {
     });
 
     const headers = ['SKU', 'Product Name', 'Warehouse', 'Quantity On Hand', 'Quantity Reserved', 'Reorder Threshold'];
-    const rows = items.map((i) => [
+    const rows = items.map((i: any) => [
       i.variant.sku,
       i.variant.product.name,
       i.warehouse.code,
@@ -76,7 +76,7 @@ export async function GET(request: Request) {
     });
 
     const headers = ['Email', 'First Name', 'Last Name', 'Phone', 'Status', 'Created At'];
-    const rows = customers.map((c) => [
+    const rows = customers.map((c: any) => [
       c.email,
       c.firstName,
       c.lastName,
