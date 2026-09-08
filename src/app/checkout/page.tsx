@@ -35,17 +35,20 @@ export default function CheckoutPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [warnings, setWarnings] = useState<string[]>([]);
 
-  // Check auth session
+  // Check auth session & auto-fill customer info
   useEffect(() => {
     fetch('/api/auth/me')
       .then((res) => res.json())
       .then((json) => {
-        if (json.success && json.data) {
+        const c = json.customer || json.data;
+        if ((json.authenticated || json.success) && c) {
           setIsGuest(false);
+          const fullName = `${c.firstName || ''} ${c.lastName || ''}`.trim();
           setAddressData((prev) => ({
             ...prev,
-            shippingName: `${json.data.firstName || ''} ${json.data.lastName || ''}`.trim(),
-            shippingPhone: json.data.phone || '',
+            guestEmail: c.email || prev.guestEmail || '',
+            shippingName: fullName || prev.shippingName || '',
+            shippingPhone: c.phone || prev.shippingPhone || '',
           }));
         }
       })

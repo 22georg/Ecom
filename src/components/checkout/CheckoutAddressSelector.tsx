@@ -79,28 +79,26 @@ export const CheckoutAddressSelector: React.FC<Props> = ({ isGuest, value, onCha
         </div>
       </div>
 
-      {/* Guest Email Field */}
-      {isGuest && (
-        <div className="mb-6">
-          <label className="block text-sm font-semibold text-[var(--mq-text-primary)] mb-2">
-            Email Address <span className="text-[var(--mq-accent-coral)]">*</span>
-          </label>
-          <div className="relative">
-            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--mq-text-muted)]" />
-            <input
-              type="email"
-              required
-              value={value.guestEmail || ''}
-              onChange={(e) => onChange({ ...value, guestEmail: e.target.value })}
-              placeholder="customer@example.com"
-              className="w-full pl-10 pr-4 py-2.5 bg-[var(--mq-background)] border border-[var(--mq-border)] rounded-xl text-sm text-[var(--mq-text-primary)] focus:outline-none focus:border-[var(--mq-primary)] transition"
-            />
-          </div>
-          <p className="text-xs text-[var(--mq-text-muted)] mt-1.5">
-            We will send order status and digital receipt to this email.
-          </p>
+      {/* Email Address Field (Auto-filled for authenticated customers) */}
+      <div className="mb-6">
+        <label className="block text-sm font-semibold text-[var(--mq-text-primary)] mb-2">
+          Email Address <span className="text-[var(--mq-accent-coral)]">*</span>
+        </label>
+        <div className="relative">
+          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--mq-text-muted)]" />
+          <input
+            type="email"
+            required
+            value={value.guestEmail || ''}
+            onChange={(e) => onChange({ ...value, guestEmail: e.target.value })}
+            placeholder="alexcar@gmail.com"
+            className="w-full pl-10 pr-4 py-2.5 bg-[var(--mq-background)] border border-[var(--mq-border)] rounded-xl text-sm text-[var(--mq-text-primary)] focus:outline-none focus:border-[var(--mq-primary)] transition"
+          />
         </div>
-      )}
+        <p className="text-xs text-[var(--mq-text-muted)] mt-1.5">
+          We will send order status updates and digital receipt to this email address.
+        </p>
+      </div>
 
       {/* Authenticated Saved Address Cards */}
       {!isGuest && savedAddresses.length > 0 && (
