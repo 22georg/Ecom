@@ -16,6 +16,7 @@ import { RelatedProductsSection } from './RelatedProductsSection';
 import { RecentlyViewedTracker } from './RecentlyViewedTracker';
 import { MobileStickyPurchaseBar } from './MobileStickyPurchaseBar';
 import { useToast } from '../ui/Toast';
+import { useCart } from '@/context/CartContext';
 
 interface ProductDetailViewProps {
   product: FormattedProductDetail;
@@ -23,6 +24,7 @@ interface ProductDetailViewProps {
 
 export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product }) => {
   const { addToast } = useToast();
+  const { addToCart } = useCart();
 
   // 1. Initialize default option selections from the first available variant
   const initialSelections = useMemo(() => {
@@ -74,12 +76,17 @@ export const ProductDetailView: React.FC<ProductDetailViewProps> = ({ product })
     }));
   };
 
-  const handleAddToCart = () => {
-    addToast({
-      type: 'success',
-      title: 'Added to Cart',
-      description: `${quantity}x ${product.name} (${activeVariantLabel || 'Standard'}) added to cart.`,
-    });
+  const handleAddToCart = async () => {
+    const targetVariantId = activeVariant?.id || product.variants[0]?.id;
+    if (!targetVariantId) {
+      addToast({
+        type: 'error',
+        title: 'Unavailable',
+        description: 'No valid variant available for purchase.',
+      });
+      return;
+    }
+    await addToCart(targetVariantId, quantity);
   };
 
   return (

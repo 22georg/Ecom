@@ -134,7 +134,7 @@ export const CartDrawer: React.FC = () => {
                 </Button>
               </a>
 
-              <a href="/cart" onClick={closeDrawer} className="w-full">
+              <a href="/checkout" onClick={closeDrawer} className="w-full">
                 <Button variant="secondary" size="md" fullWidth rightIcon={<ArrowRight className="w-4 h-4" />}>
                   Checkout
                 </Button>
