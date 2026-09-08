@@ -697,6 +697,19 @@ export default function AdminProductsPage() {
                 />
               </div>
 
+              <div>
+                <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                  Full Detailed Description
+                </label>
+                <textarea
+                  rows={3}
+                  value={formData.fullDesc}
+                  onChange={(e) => setFormData({ ...formData, fullDesc: e.target.value })}
+                  placeholder="Comprehensive product specifications, features, and details..."
+                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                />
+              </div>
+
               <div className="pt-4 flex justify-end gap-3 border-t border-slate-800">
                 <button
                   type="button"

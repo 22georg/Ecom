@@ -301,6 +301,7 @@ export async function updateAdminProduct(adminUserId: string, productId: string,
       data: {
         ...(input.price !== undefined ? { price: input.price } : {}),
         compareAtPrice: input.compareAtPrice !== undefined ? input.compareAtPrice : defaultVariant.compareAtPrice,
+        costPrice: input.costPrice !== undefined ? input.costPrice : defaultVariant.costPrice,
         ...(input.sku ? { sku: input.sku } : {}),
       },
     });
