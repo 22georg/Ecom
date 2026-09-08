@@ -36,7 +36,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       success: true,
-      customers: customers.map((c) => ({
+      customers: customers.map((c: any) => ({
         id: c.id,
         email: c.email,
         name: `${c.firstName} ${c.lastName}`,

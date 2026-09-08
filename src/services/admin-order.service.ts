@@ -133,7 +133,7 @@ export async function getAdminOrderDetail(orderId: string) {
         postalCode: order.shippingPostalCode,
         country: order.shippingCountry,
       },
-      items: order.items.map((i) => ({
+      items: order.items.map((i: any) => ({
         id: i.id,
         variantId: i.variantId,
         productName: i.productName,
@@ -145,7 +145,7 @@ export async function getAdminOrderDetail(orderId: string) {
         discount: Number(i.discount),
         lineTotal: Number(i.lineTotal),
       })),
-      payments: order.payments.map((p) => ({
+      payments: order.payments.map((p: any) => ({
         id: p.id,
         provider: p.provider,
         transactionRef: p.transactionRef,
@@ -153,7 +153,7 @@ export async function getAdminOrderDetail(orderId: string) {
         status: p.status,
         createdAt: p.createdAt,
       })),
-      shipments: order.shipments.map((s) => ({
+      shipments: order.shipments.map((s: any) => ({
         id: s.id,
         carrier: s.carrier,
         trackingNumber: s.trackingNumber,
@@ -161,7 +161,7 @@ export async function getAdminOrderDetail(orderId: string) {
         shippedAt: s.shippedAt,
         deliveredAt: s.deliveredAt,
       })),
-      returns: order.returns.map((r) => ({
+      returns: order.returns.map((r: any) => ({
         id: r.id,
         reason: r.reason,
         status: r.status,

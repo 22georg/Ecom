@@ -73,7 +73,7 @@ export async function POST(request: Request) {
         id: adminUser.id,
         email: adminUser.email,
         name: adminUser.name,
-        roles: adminUser.roles.map((r) => r.role.name),
+        roles: adminUser.roles.map((r: any) => r.role.name),
       },
     });
   } catch (err: any) {

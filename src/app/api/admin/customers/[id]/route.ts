@@ -39,21 +39,21 @@ export async function GET(request: Request, { params }: { params: { id: string }
         isVerified: customer.isVerified,
         createdAt: customer.createdAt,
         addresses: customer.addresses,
-        orders: customer.orders.map((o) => ({
+        orders: customer.orders.map((o: any) => ({
           id: o.id,
           orderNumber: o.orderNumber,
           status: o.status,
           grandTotal: Number(o.grandTotal),
           createdAt: o.createdAt,
         })),
-        returns: customer.returns.map((r) => ({
+        returns: customer.returns.map((r: any) => ({
           id: r.id,
           orderId: r.orderId,
           reason: r.reason,
           status: r.status,
           createdAt: r.createdAt,
         })),
-        reviews: customer.reviews.map((rev) => ({
+        reviews: customer.reviews.map((rev: any) => ({
           id: rev.id,
           productName: rev.product.name,
           rating: rev.rating,

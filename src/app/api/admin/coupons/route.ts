@@ -16,7 +16,7 @@ export async function GET() {
 
     return NextResponse.json({
       success: true,
-      coupons: coupons.map((c) => ({
+      coupons: coupons.map((c: any) => ({
         id: c.id,
         code: c.code,
         discountType: c.discountType,

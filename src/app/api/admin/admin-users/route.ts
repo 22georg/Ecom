@@ -20,12 +20,12 @@ export async function GET() {
 
     return NextResponse.json({
       success: true,
-      users: adminUsers.map((u) => ({
+      users: adminUsers.map((u: any) => ({
         id: u.id,
         email: u.email,
         name: u.name,
         isActive: u.isActive,
-        roles: u.roles.map((r) => ({ id: r.role.id, name: r.role.name })),
+        roles: u.roles.map((r: any) => ({ id: r.role.id, name: r.role.name })),
         createdAt: u.createdAt,
       })),
     });
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
         id: newUser.id,
         email: newUser.email,
         name: newUser.name,
-        roles: newUser.roles.map((r) => r.role.name),
+        roles: newUser.roles.map((r: any) => r.role.name),
       },
     });
   } catch (err: any) {

@@ -24,7 +24,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       success: true,
-      logs: logs.map((l) => ({
+      logs: logs.map((l: any) => ({
         id: l.id,
         adminUser: {
           id: l.adminUser.id,

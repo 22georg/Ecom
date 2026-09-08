@@ -23,14 +23,14 @@ export async function GET() {
 
     return NextResponse.json({
       success: true,
-      roles: roles.map((r) => ({
+      roles: roles.map((r: any) => ({
         id: r.id,
         name: r.name,
         description: r.description,
         userCount: r._count.users,
-        permissions: r.permissions.map((p) => p.permission.code),
+        permissions: r.permissions.map((p: any) => p.permission.code),
       })),
-      permissions: permissions.map((p) => ({
+      permissions: permissions.map((p: any) => ({
         id: p.id,
         code: p.code,
         description: p.description,
