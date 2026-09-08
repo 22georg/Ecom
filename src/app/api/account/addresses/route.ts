@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';
 import { getCurrentCustomer } from '@/lib/auth';
 
@@ -47,7 +48,7 @@ export async function POST(request: Request) {
     const validated = addressSchema.parse(body);
 
     if (process.env.DATABASE_URL) {
-      return await prisma.$transaction(async (tx) => {
+      return await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
         // Handle Default Shipping Flag
         if (validated.isDefaultShip) {
           await tx.customerAddress.updateMany({

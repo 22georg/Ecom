@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';
 import { getCurrentCustomer } from '@/lib/auth';
 
@@ -40,7 +41,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         return NextResponse.json({ error: 'Address not found or access denied' }, { status: 404 });
       }
 
-      return await prisma.$transaction(async (tx) => {
+      return await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
         if (validated.isDefaultShip) {
           await tx.customerAddress.updateMany({
             where: { customerId: customer.id, isDefaultShip: true, NOT: { id: addressId } },

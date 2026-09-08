@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCurrentCustomer } from '@/lib/auth';
 import { prisma } from '@/lib/db';
+import { Prisma } from '@prisma/client';
 import { NotificationService } from '@/services/notification.service';
 
 export const dynamic = 'force-dynamic';
@@ -37,7 +38,7 @@ export async function POST(req: NextRequest, { params }: { params: { orderNumber
     }
 
     // Atomic Cancellation & Stock Release Transaction
-    await prisma.$transaction(async (tx) => {
+    await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       // 1. Update Order Status
       await tx.order.update({
         where: { id: order.id },

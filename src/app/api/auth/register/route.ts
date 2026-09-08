@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';
 import { hashPassword, normalizeEmail, generateSecureToken, hashToken } from '@/lib/auth';
 import { EmailService } from '@/lib/email';
@@ -45,7 +46,7 @@ export async function POST(request: Request) {
       const verificationTokenHash = hashToken(rawVerificationToken);
       const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
 
-      await prisma.$transaction(async (tx) => {
+      await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
         const customer = await tx.customer.create({
           data: {
             email,

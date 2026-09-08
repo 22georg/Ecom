@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db';
+import { Prisma } from '@prisma/client';
 import { NotificationService } from './notification.service';
 
 export interface CreateReturnItemInput {
@@ -64,7 +65,7 @@ export const ReturnService = {
     }
 
     // 5. Create Return Record in Prisma Transaction
-    const returnRecord = await prisma.$transaction(async (tx) => {
+    const returnRecord = await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const createdReturn = await tx.return.create({
         data: {
           orderId: order.id,

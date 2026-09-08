@@ -59,7 +59,7 @@ export const OrderService = {
     });
 
     // 4. Atomic Prisma Transaction
-    const createdOrder = await prisma.$transaction(async (tx) => {
+    const createdOrder = await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const couponDiscount = cart.couponResult?.isValid ? cart.couponResult.discountAmount : 0;
 
       // A. Create Order

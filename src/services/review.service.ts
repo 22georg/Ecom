@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db';
+import { Prisma } from '@prisma/client';
 import { sanitizeHtml } from '@/lib/sanitize-html';
 
 export interface SubmitReviewInput {
@@ -33,7 +34,7 @@ export const ReviewService = {
     const cleanComment = input.comment ? sanitizeHtml(input.comment).slice(0, 2000) : null;
 
     // 3. Create Product Review Record
-    const review = await prisma.$transaction(async (tx) => {
+    const review = await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       const created = await tx.productReview.create({
         data: {
           productId: input.productId,

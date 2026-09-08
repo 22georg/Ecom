@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/db';
-import { MovementType } from '@prisma/client';
+import { MovementType, Prisma } from '@prisma/client';
 
 export const InventoryService = {
   /**
@@ -14,7 +14,7 @@ export const InventoryService = {
     referenceId?: string;
     notes?: string;
   }) {
-    return await prisma.$transaction(async (tx) => {
+    return await prisma.$transaction(async (tx: Prisma.TransactionClient) => {
       // 1. Log Movement
       const movement = await tx.inventoryMovement.create({
         data: {
