@@ -518,6 +518,70 @@ export default function AdminProductsPage() {
                 />
               </div>
 
+              {/* Prominent Product Image File Upload & Live Preview Section */}
+              <div className="p-3.5 bg-slate-950/80 border border-emerald-500/30 rounded-2xl space-y-2.5">
+                <label className="block font-bold text-emerald-400 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                  <Upload className="w-4 h-4 text-emerald-400" />
+                  <span>Product Image Upload (Click to select file from PC or paste URL)</span>
+                </label>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+                  {/* File Pick Button Box */}
+                  <label className="flex flex-col items-center justify-center p-3.5 border-2 border-dashed border-emerald-500/40 hover:border-emerald-400 rounded-xl cursor-pointer bg-slate-900 hover:bg-slate-800 transition-all group text-center shadow-inner">
+                    <Upload className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform mb-1" />
+                    <span className="text-xs font-extrabold text-white group-hover:text-emerald-300">
+                      📁 Click to Choose Image File
+                    </span>
+                    <span className="text-[10px] text-slate-400">Select PNG, JPG, WEBP from your computer</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageFileUpload}
+                      className="hidden"
+                    />
+                  </label>
+
+                  {/* Image Preview Thumbnail */}
+                  <div className="flex items-center gap-3 p-2.5 bg-slate-900 border border-slate-800 rounded-xl min-h-[72px]">
+                    {formData.mediaUrl ? (
+                      <div className="relative w-14 h-14 rounded-lg bg-slate-950 overflow-hidden shrink-0 border border-emerald-500/40 shadow-md">
+                        <img src={formData.mediaUrl} alt="Preview" className="w-full h-full object-cover" />
+                        <button
+                          type="button"
+                          onClick={() => setFormData({ ...formData, mediaUrl: '' })}
+                          className="absolute top-0 right-0 bg-rose-600 hover:bg-rose-500 text-white rounded-bl p-1 transition-colors"
+                          title="Remove Image"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="w-14 h-14 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-600 shrink-0">
+                        <ImageIcon className="w-7 h-7 text-slate-600" />
+                      </div>
+                    )}
+                    <div className="flex-1 overflow-hidden">
+                      <p className="text-xs font-bold text-slate-200 truncate">
+                        {formData.mediaUrl ? '✅ Image Ready' : 'No Image Uploaded'}
+                      </p>
+                      <p className="text-[10px] text-slate-400 truncate">
+                        {formData.mediaUrl.startsWith('data:')
+                          ? 'Local Image File Selected'
+                          : formData.mediaUrl || 'Click box on left to pick image file'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <input
+                  type="url"
+                  value={formData.mediaUrl.startsWith('data:') ? '' : formData.mediaUrl}
+                  onChange={(e) => setFormData({ ...formData, mediaUrl: e.target.value })}
+                  placeholder="Or paste external image URL link (https://...)"
+                  className="w-full px-3 py-2 bg-slate-900 border border-slate-800 rounded-xl text-slate-100 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                />
+              </div>
+
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">
@@ -621,68 +685,7 @@ export default function AdminProductsPage() {
                 </div>
               </div>
 
-              {/* Product Image File Upload & Live Preview Section */}
-              <div className="space-y-2 pt-2 border-t border-slate-800/80">
-                <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Product Image (File Upload or Image URL)
-                </label>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
-                  {/* File Pick Area */}
-                  <label className="flex flex-col items-center justify-center p-3 border-2 border-dashed border-slate-700 hover:border-emerald-500 rounded-xl cursor-pointer bg-slate-950/60 transition-colors group text-center">
-                    <Upload className="w-5 h-5 text-slate-400 group-hover:text-emerald-400 mb-1" />
-                    <span className="text-[11px] font-bold text-slate-300 group-hover:text-white">
-                      Upload Local Image File
-                    </span>
-                    <span className="text-[9px] text-slate-500">PNG, JPG, WEBP up to 5MB</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageFileUpload}
-                      className="hidden"
-                    />
-                  </label>
-
-                  {/* Image Preview & Clear */}
-                  <div className="flex items-center gap-3 p-2 bg-slate-950 border border-slate-800 rounded-xl min-h-[64px]">
-                    {formData.mediaUrl ? (
-                      <div className="relative w-12 h-12 rounded-lg bg-slate-900 overflow-hidden shrink-0 border border-slate-800">
-                        <img src={formData.mediaUrl} alt="Preview" className="w-full h-full object-cover" />
-                        <button
-                          type="button"
-                          onClick={() => setFormData({ ...formData, mediaUrl: '' })}
-                          className="absolute top-0 right-0 bg-rose-600 text-white rounded-bl p-0.5"
-                          title="Remove Image"
-                        >
-                          <X className="w-3 h-3" />
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="w-12 h-12 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600 shrink-0">
-                        <ImageIcon className="w-6 h-6" />
-                      </div>
-                    )}
-                    <div className="flex-1 overflow-hidden">
-                      <p className="text-[11px] font-semibold text-slate-300 truncate">
-                        {formData.mediaUrl ? 'Image Loaded' : 'No Image Selected'}
-                      </p>
-                      <p className="text-[9px] text-slate-500 truncate">
-                        {formData.mediaUrl.startsWith('data:')
-                          ? 'Local uploaded file (Base64)'
-                          : formData.mediaUrl || 'Choose file or enter URL below'}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <input
-                  type="url"
-                  value={formData.mediaUrl.startsWith('data:') ? '' : formData.mediaUrl}
-                  onChange={(e) => setFormData({ ...formData, mediaUrl: e.target.value })}
-                  placeholder="Or paste external image URL (https://...)"
-                  className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 mt-1"
-                />
-              </div>
 
               <div>
                 <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">
