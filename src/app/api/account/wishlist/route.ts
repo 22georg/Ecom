@@ -40,7 +40,7 @@ export async function GET() {
       return NextResponse.json({ wishlist: [], total: 0 });
     }
 
-    const wishlist = userWishlist.items.map((item) => ({
+    const wishlist = userWishlist.items.map((item: any) => ({
       wishlistItemId: item.id,
       productId: item.product.id,
       name: item.product.name,

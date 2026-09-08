@@ -33,7 +33,7 @@ export async function GET(request: Request) {
       o.createdAt.toISOString(),
     ]);
 
-    csvContent = [headers.join(','), ...rows.map((r) => r.map((cell) => `"${cell}"`).join(','))].join('\n');
+    csvContent = [headers.join(','), ...rows.map((r: string[]) => r.map((cell: string) => `"${cell}"`).join(','))].join('\n');
   } else if (type === 'products') {
     const products = await prisma.product.findMany({
       include: { variants: true },
@@ -51,7 +51,7 @@ export async function GET(request: Request) {
       p.createdAt.toISOString(),
     ]);
 
-    csvContent = [headers.join(','), ...rows.map((r) => r.map((cell) => `"${cell}"`).join(','))].join('\n');
+    csvContent = [headers.join(','), ...rows.map((r: string[]) => r.map((cell: string) => `"${cell}"`).join(','))].join('\n');
   } else if (type === 'inventory') {
     const items = await prisma.inventoryItem.findMany({
       include: { variant: { include: { product: true } }, warehouse: true },
@@ -68,7 +68,7 @@ export async function GET(request: Request) {
       i.reorderThreshold.toString(),
     ]);
 
-    csvContent = [headers.join(','), ...rows.map((r) => r.map((cell) => `"${cell}"`).join(','))].join('\n');
+    csvContent = [headers.join(','), ...rows.map((r: string[]) => r.map((cell: string) => `"${cell}"`).join(','))].join('\n');
   } else if (type === 'customers') {
     const customers = await prisma.customer.findMany({
       where: { deletedAt: null },
@@ -85,7 +85,7 @@ export async function GET(request: Request) {
       c.createdAt.toISOString(),
     ]);
 
-    csvContent = [headers.join(','), ...rows.map((r) => r.map((cell) => `"${cell}"`).join(','))].join('\n');
+    csvContent = [headers.join(','), ...rows.map((r: string[]) => r.map((cell: string) => `"${cell}"`).join(','))].join('\n');
   }
 
   return new NextResponse(csvContent, {
