@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Heart, User, Menu, X, Sparkles, Sun, Moon } from 'lucide-react';
+import { ShoppingBag, Heart, User, Menu, X, Sparkles, Sun, Moon, ChevronDown, ShieldCheck, UserCheck } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { HeaderSearch } from '../discovery/HeaderSearch';
 import { MegaMenu } from '../discovery/MegaMenu';
@@ -27,6 +27,7 @@ export const StorefrontHeader: React.FC<StorefrontHeaderProps> = ({
 }) => {
   const { itemCount, openDrawer } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [accountDropdownOpen, setAccountDropdownOpen] = useState(false);
   const [categories, setCategories] = useState<any[]>([]);
 
   const activeCartCount = cartCount !== undefined ? cartCount : itemCount;
@@ -55,7 +56,9 @@ export const StorefrontHeader: React.FC<StorefrontHeaderProps> = ({
             <span>•</span>
             <a href="/wishlist" className="hover:underline">Wishlist</a>
             <span>•</span>
-            <a href="#" className="hover:underline">Support 24/7</a>
+            <a href="/admin/login" className="hover:underline flex items-center gap-1 font-semibold text-amber-300">
+              <ShieldCheck className="w-3 h-3" /> Admin Portal
+            </a>
           </div>
         </div>
       </div>
@@ -130,16 +133,76 @@ export const StorefrontHeader: React.FC<StorefrontHeaderProps> = ({
             )}
           </button>
 
-          {/* Customer Account CTA */}
-          <Button
-            variant="outline"
-            size="sm"
-            leftIcon={<User className="w-4 h-4 hidden sm:inline-block" />}
-            onClick={() => (window.location.href = '/account')}
-          >
-            <span className="hidden sm:inline">Account</span>
-            <span className="sm:hidden">Sign In</span>
-          </Button>
+          {/* Interactive Account & Admin Portal Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setAccountDropdownOpen(!accountDropdownOpen)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--mq-border)] bg-[var(--mq-surface)] hover:bg-[var(--mq-surface-muted)] text-[var(--mq-text-primary)] text-sm font-semibold transition-all duration-200 shadow-xs cursor-pointer"
+              aria-expanded={accountDropdownOpen}
+              aria-haspopup="true"
+            >
+              <User className="w-4 h-4 text-[var(--mq-secondary)]" />
+              <span className="hidden sm:inline">Account</span>
+              <span className="sm:hidden">Sign In</span>
+              <ChevronDown className={`w-3.5 h-3.5 text-[var(--mq-text-secondary)] transition-transform duration-200 ${accountDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {accountDropdownOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setAccountDropdownOpen(false)}
+                />
+
+                <div className="absolute right-0 mt-2 w-64 rounded-xl bg-[var(--mq-surface)] border border-[var(--mq-border)] shadow-xl z-50 p-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="px-3 py-2 border-b border-[var(--mq-border)] mb-1">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-[var(--mq-text-secondary)]">Portal Selection</p>
+                    <p className="text-[11px] text-[var(--mq-text-tertiary)]">Select your login destination</p>
+                  </div>
+
+                  {/* Customer Portal Option */}
+                  <a
+                    href="/login"
+                    onClick={() => setAccountDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-[var(--mq-surface-muted)] transition-colors group cursor-pointer"
+                  >
+                    <div className="p-2 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:scale-105 transition-transform mt-0.5">
+                      <UserCheck className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-[var(--mq-text-primary)] flex items-center gap-1.5">
+                        Customer Portal
+                        <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-semibold">Storefront</span>
+                      </div>
+                      <p className="text-[11px] text-[var(--mq-text-secondary)] leading-tight mt-0.5">
+                        Sign in, register, track orders & profile
+                      </p>
+                    </div>
+                  </a>
+
+                  {/* Admin Portal Option */}
+                  <a
+                    href="/admin/login"
+                    onClick={() => setAccountDropdownOpen(false)}
+                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-[var(--mq-surface-muted)] transition-colors group cursor-pointer mt-1"
+                  >
+                    <div className="p-2 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform mt-0.5">
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-[var(--mq-text-primary)] flex items-center gap-1.5">
+                        Admin Portal
+                        <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-semibold">Console</span>
+                      </div>
+                      <p className="text-[11px] text-[var(--mq-text-secondary)] leading-tight mt-0.5">
+                        Management dashboard for products & orders
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, ChevronRight, User, ShoppingBag, Heart, Search } from 'lucide-react';
+import { X, ChevronRight, User, ShoppingBag, Heart, Search, ShieldCheck } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 interface MobileCategoryDrawerProps {
@@ -107,19 +107,32 @@ export const MobileCategoryDrawer: React.FC<MobileCategoryDrawerProps> = ({
           })}
         </div>
 
-        {/* Drawer Footer Account CTA */}
+        {/* Drawer Footer Account & Admin CTAs */}
         <div className="p-4 border-t border-[var(--mq-border)] bg-[var(--mq-surface-muted)] flex flex-col gap-2">
+          <Button
+            variant="outline"
+            size="md"
+            fullWidth
+            leftIcon={<User className="w-4 h-4 text-blue-600" />}
+            onClick={() => {
+              onClose();
+              window.location.href = '/login';
+            }}
+          >
+            Customer Sign In / Register
+          </Button>
+
           <Button
             variant="primary"
             size="md"
             fullWidth
-            leftIcon={<User className="w-4 h-4" />}
+            leftIcon={<ShieldCheck className="w-4 h-4 text-emerald-400" />}
             onClick={() => {
               onClose();
-              window.location.href = '/account';
+              window.location.href = '/admin/login';
             }}
           >
-            My Account
+            Admin Management Console
           </Button>
         </div>
       </div>
