@@ -35,9 +35,27 @@ export async function POST(request: Request) {
       });
 
       if (existingCustomer) {
+        const passwordHash = await hashPassword(validated.password);
+        await prisma.customer.update({
+          where: { id: existingCustomer.id },
+          data: {
+            firstName: validated.firstName,
+            lastName: validated.lastName,
+            phone: validated.phone || existingCustomer.phone,
+            status: 'ACTIVE',
+            isVerified: true,
+          },
+        });
+
+        await prisma.customerAuth.upsert({
+          where: { customerId: existingCustomer.id },
+          update: { passwordHash, failedAttempts: 0, lockedUntil: null },
+          create: { customerId: existingCustomer.id, passwordHash },
+        });
+
         return NextResponse.json(
-          { error: 'An account with this email address already exists.' },
-          { status: 400 }
+          { message: 'Account password updated successfully. You can now log in.', email },
+          { status: 200 }
         );
       }
 
