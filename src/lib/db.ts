@@ -11,6 +11,11 @@ if (!process.env.DATABASE_URL) {
     '';
 }
 
+if (process.env.DATABASE_URL && !process.env.DATABASE_URL.includes('statement_cache_size=')) {
+  const joiner = process.env.DATABASE_URL.includes('?') ? '&' : '?';
+  process.env.DATABASE_URL = `${process.env.DATABASE_URL}${joiner}statement_cache_size=0&pgbouncer=true`;
+}
+
 if (!process.env.DIRECT_URL) {
   process.env.DIRECT_URL = process.env.DATABASE_URL;
 }

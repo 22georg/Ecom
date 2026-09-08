@@ -216,6 +216,176 @@ export async function updateAdminProductStatus(
   return updated;
 }
 
+export async function getAdminProductById(productId: string) {
+  if (!process.env.DATABASE_URL) return null;
+
+  const p = await prisma.product.findUnique({
+    where: { id: productId },
+    include: {
+      brand: true,
+      categories: { include: { category: true } },
+      media: { orderBy: { displayOrder: 'asc' } },
+      variants: {
+        include: { inventoryItems: { include: { warehouse: true } } },
+      },
+    },
+  });
+
+  if (!p) return null;
+
+  const defaultVariant = p.variants[0];
+  const totalStock = p.variants.reduce((acc, v) => {
+    return acc + v.inventoryItems.reduce((invAcc, i) => invAcc + i.quantityOnHand, 0);
+  }, 0);
+
+  return {
+    id: p.id,
+    name: p.name,
+    slug: p.slug,
+    shortDesc: p.shortDesc || '',
+    fullDesc: p.fullDesc || '',
+    status: p.status,
+    type: p.type,
+    brandId: p.brandId || '',
+    categoryId: p.categories[0]?.categoryId || '',
+    categoryName: p.categories[0]?.category.name || '',
+    price: defaultVariant ? Number(defaultVariant.price) : 0,
+    compareAtPrice: defaultVariant?.compareAtPrice ? Number(defaultVariant.compareAtPrice) : null,
+    sku: defaultVariant?.sku || '',
+    stockQuantity: totalStock,
+    mediaUrls: p.media.map((m) => m.mediaUrl),
+    primaryImage: p.media.find((m) => m.isPrimary)?.mediaUrl || p.media[0]?.mediaUrl || null,
+  };
+}
+
+export async function updateAdminProduct(adminUserId: string, productId: string, input: Partial<CreateProductInput>) {
+  if (!process.env.DATABASE_URL) throw new Error('Database not connected');
+
+  const existing = await prisma.product.findUnique({
+    where: { id: productId },
+    include: { variants: true },
+  });
+  if (!existing) throw new Error('Product not found.');
+
+  // Validate slug uniqueness if changed
+  if (input.slug && input.slug !== existing.slug) {
+    const slugCheck = await prisma.product.findUnique({ where: { slug: input.slug } });
+    if (slugCheck) throw new Error(`Slug "${input.slug}" is already in use by another product.`);
+  }
+
+  // Validate SKU uniqueness if changed
+  if (input.sku && existing.variants[0] && input.sku !== existing.variants[0].sku) {
+    const skuCheck = await prisma.productVariant.findUnique({ where: { sku: input.sku } });
+    if (skuCheck) throw new Error(`SKU "${input.sku}" is already in use.`);
+  }
+
+  // Update base product
+  const updatedProduct = await prisma.product.update({
+    where: { id: productId },
+    data: {
+      ...(input.name ? { name: input.name } : {}),
+      ...(input.slug ? { slug: input.slug } : {}),
+      shortDesc: input.shortDesc !== undefined ? input.shortDesc : existing.shortDesc,
+      fullDesc: input.fullDesc !== undefined ? input.fullDesc : existing.fullDesc,
+      status: input.status || existing.status,
+      type: input.type || existing.type,
+      publishedAt: input.status === 'ACTIVE' ? new Date() : existing.publishedAt,
+    },
+  });
+
+  // Update primary variant (price, compareAtPrice, SKU, stock)
+  const defaultVariant = existing.variants[0];
+  if (defaultVariant) {
+    await prisma.productVariant.update({
+      where: { id: defaultVariant.id },
+      data: {
+        ...(input.price !== undefined ? { price: input.price } : {}),
+        compareAtPrice: input.compareAtPrice !== undefined ? input.compareAtPrice : defaultVariant.compareAtPrice,
+        ...(input.sku ? { sku: input.sku } : {}),
+      },
+    });
+
+    if (input.stockQuantity !== undefined) {
+      const invItem = await prisma.inventoryItem.findFirst({
+        where: { variantId: defaultVariant.id },
+      });
+
+      if (invItem) {
+        await prisma.inventoryItem.update({
+          where: { id: invItem.id },
+          data: { quantityOnHand: input.stockQuantity },
+        });
+      }
+    }
+  }
+
+  // Update Category mapping if provided
+  if (input.categoryId !== undefined) {
+    await prisma.productCategory.deleteMany({ where: { productId } });
+    if (input.categoryId) {
+      await prisma.productCategory.create({
+        data: { productId, categoryId: input.categoryId },
+      });
+    }
+  }
+
+  // Update Media URLs if provided
+  if (input.mediaUrls !== undefined && input.mediaUrls.length > 0) {
+    await prisma.productMedia.deleteMany({ where: { productId } });
+    await prisma.productMedia.createMany({
+      data: input.mediaUrls.map((url, idx) => ({
+        productId,
+        mediaUrl: url,
+        isPrimary: idx === 0,
+        displayOrder: idx,
+      })),
+    });
+  }
+
+  await logAdminAction({
+    adminUserId,
+    action: 'PRODUCT_UPDATED',
+    entityType: 'Product',
+    entityId: productId,
+    payload: { name: updatedProduct.name, status: updatedProduct.status },
+  });
+
+  return updatedProduct;
+}
+
+export async function deleteAdminProduct(adminUserId: string, productId: string) {
+  if (!process.env.DATABASE_URL) throw new Error('Database not connected');
+
+  const existing = await prisma.product.findUnique({ where: { id: productId } });
+  if (!existing) throw new Error('Product not found.');
+
+  // Clean up child relations manually to avoid FK constraints
+  const variants = await prisma.productVariant.findMany({ where: { productId }, select: { id: true } });
+  const variantIds = variants.map((v) => v.id);
+
+  if (variantIds.length > 0) {
+    await prisma.inventoryItem.deleteMany({ where: { variantId: { in: variantIds } } });
+    await prisma.productVariantOption.deleteMany({ where: { variantId: { in: variantIds } } });
+    await prisma.productVariant.deleteMany({ where: { productId } });
+  }
+
+  await prisma.productCategory.deleteMany({ where: { productId } });
+  await prisma.productMedia.deleteMany({ where: { productId } });
+  await prisma.productReview.deleteMany({ where: { productId } });
+
+  const deleted = await prisma.product.delete({ where: { id: productId } });
+
+  await logAdminAction({
+    adminUserId,
+    action: 'PRODUCT_DELETED',
+    entityType: 'Product',
+    entityId: productId,
+    payload: { name: existing.name },
+  });
+
+  return deleted;
+}
+
 export async function getAdminCategoriesTree() {
   if (!process.env.DATABASE_URL) return [];
 
@@ -254,3 +424,69 @@ export async function getAdminCategoriesTree() {
     return [];
   }
 }
+
+export async function updateAdminCategory(
+  adminUserId: string,
+  categoryId: string,
+  input: { name?: string; slug?: string; description?: string; parentId?: string; isActive?: boolean }
+) {
+  if (!process.env.DATABASE_URL) throw new Error('Database not connected');
+
+  const existing = await prisma.category.findUnique({ where: { id: categoryId } });
+  if (!existing) throw new Error('Category not found.');
+
+  if (input.slug && input.slug !== existing.slug) {
+    const slugCheck = await prisma.category.findUnique({ where: { slug: input.slug } });
+    if (slugCheck) throw new Error(`Category slug "${input.slug}" is already in use.`);
+  }
+
+  const updated = await prisma.category.update({
+    where: { id: categoryId },
+    data: {
+      ...(input.name ? { name: input.name } : {}),
+      ...(input.slug ? { slug: input.slug } : {}),
+      description: input.description !== undefined ? input.description : existing.description,
+      parentId: input.parentId !== undefined ? (input.parentId || null) : existing.parentId,
+      isActive: input.isActive !== undefined ? input.isActive : existing.isActive,
+    },
+  });
+
+  await logAdminAction({
+    adminUserId,
+    action: 'CATEGORY_UPDATED',
+    entityType: 'Category',
+    entityId: categoryId,
+    payload: { name: updated.name, slug: updated.slug },
+  });
+
+  return updated;
+}
+
+export async function deleteAdminCategory(adminUserId: string, categoryId: string) {
+  if (!process.env.DATABASE_URL) throw new Error('Database not connected');
+
+  const existing = await prisma.category.findUnique({ where: { id: categoryId } });
+  if (!existing) throw new Error('Category not found.');
+
+  // Disconnect products assigned to this category
+  await prisma.productCategory.deleteMany({ where: { categoryId } });
+
+  // Update children parentId to null if any
+  await prisma.category.updateMany({
+    where: { parentId: categoryId },
+    data: { parentId: null },
+  });
+
+  const deleted = await prisma.category.delete({ where: { id: categoryId } });
+
+  await logAdminAction({
+    adminUserId,
+    action: 'CATEGORY_DELETED',
+    entityType: 'Category',
+    entityId: categoryId,
+    payload: { name: existing.name },
+  });
+
+  return deleted;
+}
+
