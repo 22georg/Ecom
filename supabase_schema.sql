@@ -1,4 +1,57 @@
-﻿-- CreateEnum
+-- Drop existing tables and enum types if re-running script
+DROP TABLE IF EXISTS "system_events" CASCADE;
+DROP TABLE IF EXISTS "admin_audit_logs" CASCADE;
+DROP TABLE IF EXISTS "role_permissions" CASCADE;
+DROP TABLE IF EXISTS "admin_permissions" CASCADE;
+DROP TABLE IF EXISTS "admin_role_users" CASCADE;
+DROP TABLE IF EXISTS "admin_roles" CASCADE;
+DROP TABLE IF EXISTS "admin_sessions" CASCADE;
+DROP TABLE IF EXISTS "admin_users" CASCADE;
+DROP TABLE IF EXISTS "notifications" CASCADE;
+DROP TABLE IF EXISTS "product_reviews" CASCADE;
+DROP TABLE IF EXISTS "refunds" CASCADE;
+DROP TABLE IF EXISTS "return_items" CASCADE;
+DROP TABLE IF EXISTS "returns" CASCADE;
+DROP TABLE IF EXISTS "shipments" CASCADE;
+DROP TABLE IF EXISTS "payments" CASCADE;
+DROP TABLE IF EXISTS "order_items" CASCADE;
+DROP TABLE IF EXISTS "orders" CASCADE;
+DROP TABLE IF EXISTS "coupons" CASCADE;
+DROP TABLE IF EXISTS "wishlist_items" CASCADE;
+DROP TABLE IF EXISTS "wishlists" CASCADE;
+DROP TABLE IF EXISTS "cart_items" CASCADE;
+DROP TABLE IF EXISTS "carts" CASCADE;
+DROP TABLE IF EXISTS "inventory_movements" CASCADE;
+DROP TABLE IF EXISTS "inventory_items" CASCADE;
+DROP TABLE IF EXISTS "warehouses" CASCADE;
+DROP TABLE IF EXISTS "product_media" CASCADE;
+DROP TABLE IF EXISTS "product_variant_options" CASCADE;
+DROP TABLE IF EXISTS "product_variants" CASCADE;
+DROP TABLE IF EXISTS "product_option_values" CASCADE;
+DROP TABLE IF EXISTS "product_options" CASCADE;
+DROP TABLE IF EXISTS "product_categories" CASCADE;
+DROP TABLE IF EXISTS "products" CASCADE;
+DROP TABLE IF EXISTS "brands" CASCADE;
+DROP TABLE IF EXISTS "categories" CASCADE;
+DROP TABLE IF EXISTS "customer_addresses" CASCADE;
+DROP TABLE IF EXISTS "password_reset_tokens" CASCADE;
+DROP TABLE IF EXISTS "email_verification_tokens" CASCADE;
+DROP TABLE IF EXISTS "customer_sessions" CASCADE;
+DROP TABLE IF EXISTS "customer_auth" CASCADE;
+DROP TABLE IF EXISTS "customers" CASCADE;
+
+DROP TYPE IF EXISTS "AccountStatus" CASCADE;
+DROP TYPE IF EXISTS "ProductStatus" CASCADE;
+DROP TYPE IF EXISTS "ProductType" CASCADE;
+DROP TYPE IF EXISTS "MovementType" CASCADE;
+DROP TYPE IF EXISTS "DiscountType" CASCADE;
+DROP TYPE IF EXISTS "OrderStatus" CASCADE;
+DROP TYPE IF EXISTS "PaymentStatus" CASCADE;
+DROP TYPE IF EXISTS "FulfillmentStatus" CASCADE;
+DROP TYPE IF EXISTS "ReturnStatus" CASCADE;
+DROP TYPE IF EXISTS "RefundStatus" CASCADE;
+
+-- CreateEnum
 CREATE TYPE "AccountStatus" AS ENUM ('ACTIVE', 'PENDING_VERIFICATION', 'SUSPENDED', 'DISABLED');
 
 -- CreateEnum
