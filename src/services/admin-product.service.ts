@@ -130,8 +130,18 @@ export async function createAdminProduct(adminUserId: string, input: CreateProdu
   const existingSku = await prisma.productVariant.findUnique({ where: { sku: input.sku } });
   if (existingSku) throw new Error(`SKU "${input.sku}" already exists.`);
 
-  const defaultWarehouse = await prisma.warehouse.findFirst();
-  if (!defaultWarehouse) throw new Error('No default warehouse configured for stock creation.');
+  let defaultWarehouse = await prisma.warehouse.findFirst();
+  if (!defaultWarehouse) {
+    defaultWarehouse = await prisma.warehouse.create({
+      data: {
+        name: 'MARQIVO Central Warehouse',
+        code: 'MARQIVO-DHAKA-WH',
+        city: 'Dhaka',
+        country: 'BD',
+        isActive: true,
+      },
+    });
+  }
 
   const product = await prisma.product.create({
     data: {
