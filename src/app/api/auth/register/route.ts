@@ -53,7 +53,8 @@ export async function POST(request: Request) {
             firstName: validated.firstName,
             lastName: validated.lastName,
             phone: validated.phone || null,
-            status: 'PENDING_VERIFICATION',
+            status: 'ACTIVE',
+            isVerified: true,
             auth: {
               create: {
                 passwordHash,
