@@ -114,6 +114,26 @@ CREATE TABLE "customer_sessions" (
     CONSTRAINT "customer_sessions_pkey" PRIMARY KEY ("id")
 );
 
+CREATE TABLE "email_verification_tokens" (
+    "id" TEXT NOT NULL,
+    "customerId" TEXT NOT NULL,
+    "tokenHash" TEXT NOT NULL,
+    "expiresAt" TIMESTAMP(3) NOT NULL,
+    "usedAt" TIMESTAMP(3),
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "email_verification_tokens_pkey" PRIMARY KEY ("id")
+);
+
+CREATE TABLE "password_reset_tokens" (
+    "id" TEXT NOT NULL,
+    "customerId" TEXT NOT NULL,
+    "tokenHash" TEXT NOT NULL,
+    "expiresAt" TIMESTAMP(3) NOT NULL,
+    "usedAt" TIMESTAMP(3),
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "password_reset_tokens_pkey" PRIMARY KEY ("id")
+);
+
 CREATE TABLE "customer_addresses" (
     "id" TEXT NOT NULL,
     "customerId" TEXT NOT NULL,

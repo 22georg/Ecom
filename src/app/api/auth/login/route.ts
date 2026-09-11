@@ -27,28 +27,7 @@ export async function POST(request: Request) {
     const email = normalizeEmail(validated.email);
     const userAgent = request.headers.get('user-agent') || 'Unknown Browser';
 
-    // 1. STRICT SEPARATION: Block Admin Accounts from Customer Portal
-    if (email === 'admin@marqivo.com') {
-      return NextResponse.json(
-        { error: 'Administrator accounts cannot log in via the customer portal. Please use the Admin Console at /admin/login.' },
-        { status: 400 }
-      );
-    }
-
     if (process.env.DATABASE_URL) {
-      let isAdminUser = false;
-      try {
-        const adminCheck = await prisma.adminUser.findUnique({ where: { email } });
-        if (adminCheck) isAdminUser = true;
-      } catch (err) {}
-
-      if (isAdminUser) {
-        return NextResponse.json(
-          { error: 'Administrator accounts cannot log in via the customer portal. Please use the Admin Console at /admin/login.' },
-          { status: 400 }
-        );
-      }
-
       let customer = null;
       try {
         customer = await prisma.customer.findUnique({

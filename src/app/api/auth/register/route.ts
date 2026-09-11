@@ -102,12 +102,16 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (err: any) {
+    console.error('Registration handler error:', err);
     if (err instanceof z.ZodError) {
       return NextResponse.json(
         { error: 'Validation failed', details: err.errors.map((e: any) => e.message) },
         { status: 400 }
       );
     }
-    return NextResponse.json({ error: 'Registration failed. Please try again.' }, { status: 500 });
+    return NextResponse.json(
+      { error: err.message || 'Registration failed. Please try again.' },
+      { status: 500 }
+    );
   }
 }

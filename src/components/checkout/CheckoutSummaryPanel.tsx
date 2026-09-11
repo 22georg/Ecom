@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { ShoppingBag, ArrowRight, ShieldCheck, Tag, Loader2 } from 'lucide-react';
+import { ShoppingBag, ArrowRight, ShieldCheck, Tag, Loader2, X, CheckCircle, AlertCircle } from 'lucide-react';
 import { FormattedCart } from '@/services/cart.service';
+import { useCart } from '@/context/CartContext';
 
 interface Props {
   cart: FormattedCart | null;
@@ -20,9 +21,37 @@ export const CheckoutSummaryPanel: React.FC<Props> = ({
   onNotesChange,
   onSubmitOrder,
 }) => {
+  const { applyCoupon, removeCoupon } = useCart();
+  const [couponCode, setCouponCode] = useState('');
+  const [couponLoading, setCouponLoading] = useState(false);
+  const [couponMessage, setCouponMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
   if (!cart) return null;
 
   const couponDiscount = cart.couponResult?.isValid ? cart.couponResult.discountAmount : 0;
+
+  const handleApplyCoupon = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!couponCode.trim()) return;
+    setCouponLoading(true);
+    setCouponMessage(null);
+
+    const res = await applyCoupon(couponCode.trim());
+    setCouponLoading(false);
+    if (res.success) {
+      setCouponMessage({ type: 'success', text: res.message || 'Coupon applied successfully!' });
+      setCouponCode('');
+    } else {
+      setCouponMessage({ type: 'error', text: res.message || 'Invalid coupon code.' });
+    }
+  };
+
+  const handleRemoveCoupon = async () => {
+    setCouponLoading(true);
+    setCouponMessage(null);
+    await removeCoupon();
+    setCouponLoading(false);
+  };
 
   return (
     <div className="bg-[var(--mq-surface)] border border-[var(--mq-border)] rounded-2xl p-6 shadow-sm sticky top-24">
@@ -65,6 +94,71 @@ export const CheckoutSummaryPanel: React.FC<Props> = ({
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Promo / Coupon Code Input Section */}
+      <div className="mb-4 pt-3 border-t border-[var(--mq-border)]">
+        <label className="block text-xs font-semibold text-[var(--mq-text-primary)] mb-1.5 flex items-center gap-1.5">
+          <Tag className="w-3.5 h-3.5 text-[var(--mq-primary)]" />
+          <span>Have a Promo / Coupon Code?</span>
+        </label>
+
+        {cart.couponCode && cart.couponResult?.isValid ? (
+          <div className="flex items-center justify-between p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+              <div>
+                <p className="font-bold text-emerald-500 uppercase tracking-wider">{cart.couponCode}</p>
+                <p className="text-[10px] text-[var(--mq-text-muted)]">
+                  Discount: -৳{cart.couponResult.discountAmount.toLocaleString()}
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              disabled={couponLoading}
+              onClick={handleRemoveCoupon}
+              className="p-1 rounded-lg hover:bg-emerald-500/20 text-emerald-400 hover:text-emerald-300 transition-colors"
+              title="Remove Coupon"
+            >
+              {couponLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <X className="w-4 h-4" />}
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleApplyCoupon} className="flex gap-2">
+            <input
+              type="text"
+              value={couponCode}
+              onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+              placeholder="ENTER COUPON (e.g. WELCOME1000)"
+              className="flex-1 px-3 py-2 bg-[var(--mq-background)] border border-[var(--mq-border)] rounded-xl text-xs uppercase font-mono text-[var(--mq-text-primary)] focus:outline-none focus:border-[var(--mq-primary)]"
+            />
+            <button
+              type="submit"
+              disabled={couponLoading || !couponCode.trim()}
+              className="px-4 py-2 bg-[var(--mq-primary)] hover:bg-[var(--mq-primary-dark)] text-white text-xs font-bold rounded-xl transition disabled:opacity-50 flex items-center justify-center min-w-[70px]"
+            >
+              {couponLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin text-white" /> : 'Apply'}
+            </button>
+          </form>
+        )}
+
+        {couponMessage && (
+          <div
+            className={`mt-2 p-2 rounded-lg text-[11px] flex items-center gap-1.5 ${
+              couponMessage.type === 'success'
+                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                : 'bg-rose-500/10 text-rose-400 border border-rose-500/20'
+            }`}
+          >
+            {couponMessage.type === 'success' ? (
+              <CheckCircle className="w-3.5 h-3.5 shrink-0" />
+            ) : (
+              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+            )}
+            <span>{couponMessage.text}</span>
+          </div>
+        )}
       </div>
 
       {/* Special Delivery Notes */}
