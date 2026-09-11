@@ -46,3 +46,5 @@ marqivo-tests/tools/maven/
 # QA test screenshots & reports (auto-generated)
 marqivo-tests/test-output/
 marqivo-tests/screenshots/
+target/ 
+marqivo-tests/target/ 

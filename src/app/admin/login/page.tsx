@@ -2,15 +2,15 @@
 
 import React, { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { ShieldCheck, Lock, Mail, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
+import { Lock, Mail, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 
 function LoginFormContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const returnTo = searchParams.get('returnTo') || '/admin/dashboard';
 
-  const [email, setEmail] = useState('admin@marqivo.com');
-  const [password, setPassword] = useState('MarqivoAdmin2026!');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -105,18 +105,6 @@ function LoginFormContent() {
           )}
         </button>
       </form>
-
-      {/* Seed Credentials Hint Box */}
-      <div className="mt-8 pt-6 border-t border-slate-800">
-        <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-2">
-          <ShieldCheck className="w-4 h-4 text-emerald-400" />
-          <span>Initial SuperAdmin Credentials</span>
-        </div>
-        <div className="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 text-xs font-mono text-slate-400 space-y-1">
-          <p>Email: <span className="text-emerald-400">admin@marqivo.com</span></p>
-          <p>Pass: <span className="text-emerald-400">MarqivoAdmin2026!</span></p>
-        </div>
-      </div>
     </div>
   );
 }

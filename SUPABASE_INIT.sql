@@ -465,6 +465,72 @@ CREATE TABLE "admin_audit_logs" (
     CONSTRAINT "admin_audit_logs_pkey" PRIMARY KEY ("id")
 );
 
+-- Shipments, Returns, Refunds, Reviews, Notifications & System Events
+CREATE TABLE "shipments" (
+    "id" TEXT NOT NULL,
+    "orderId" TEXT NOT NULL,
+    "carrier" TEXT NOT NULL,
+    "trackingNumber" TEXT,
+    "status" "FulfillmentStatus" NOT NULL DEFAULT 'FULFILLED',
+    "shippedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "deliveredAt" TIMESTAMP(3),
+    CONSTRAINT "shipments_pkey" PRIMARY KEY ("id")
+);
+
+CREATE TABLE "returns" (
+    "id" TEXT NOT NULL,
+    "orderId" TEXT NOT NULL,
+    "customerId" TEXT NOT NULL,
+    "reason" TEXT NOT NULL,
+    "customerNote" TEXT,
+    "status" "ReturnStatus" NOT NULL DEFAULT 'REQUESTED',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "returns_pkey" PRIMARY KEY ("id")
+);
+
+CREATE TABLE "return_items" (
+    "id" TEXT NOT NULL,
+    "returnId" TEXT NOT NULL,
+    "orderItemId" TEXT NOT NULL,
+    "variantId" TEXT,
+    "quantity" INTEGER NOT NULL,
+    "reason" TEXT,
+    CONSTRAINT "return_items_pkey" PRIMARY KEY ("id")
+);
+
+CREATE TABLE "refunds" (
+    "id" TEXT NOT NULL,
+    "paymentId" TEXT NOT NULL,
+    "returnId" TEXT,
+    "amount" DECIMAL(12,2) NOT NULL,
+    "reason" TEXT,
+    "status" "RefundStatus" NOT NULL DEFAULT 'PENDING',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "refunds_pkey" PRIMARY KEY ("id")
+);
+
+CREATE TABLE "notifications" (
+    "id" TEXT NOT NULL,
+    "customerId" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "message" TEXT NOT NULL,
+    "actionUrl" TEXT,
+    "isRead" BOOLEAN NOT NULL DEFAULT false,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "notifications_pkey" PRIMARY KEY ("id")
+);
+
+CREATE TABLE "system_events" (
+    "id" TEXT NOT NULL,
+    "eventType" TEXT NOT NULL,
+    "payload" TEXT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'PENDING',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "system_events_pkey" PRIMARY KEY ("id")
+);
+
 -- 4. CREATE INDEXES & UNIQUE CONSTRAINTS
 CREATE UNIQUE INDEX "customers_email_key" ON "customers"("email");
 CREATE INDEX "customers_email_idx" ON "customers"("email");
